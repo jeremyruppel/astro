@@ -1,6 +1,8 @@
 require 'astro'
 require 'rack/test'
 
+Dir[ './spec/support/*.rb' ].each { |f| require f }
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.treat_symbols_as_metadata_keys_with_true_values = true
