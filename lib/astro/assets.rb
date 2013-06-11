@@ -25,6 +25,7 @@ module Astro
           # resolving the dependencies.
           env.register_preprocessor 'application/javascript', :astro do |context, data|
             if context.logical_path == 'astro'
+              params[ :assets ] ||= [ ]
               params[ :assets ].each do |asset|
                 context.require_asset( asset )
               end

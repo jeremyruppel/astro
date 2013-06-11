@@ -14,15 +14,12 @@ module Astro
 
     register Astro::Assets
 
-    # TODO test this
-    before do
-      params[ :assets ] ||= [ ]
-    end
-
+    ##
+    #
     get '/javascripts' do
-      # content_type 'application/javascript' TODO test this
-      # puts params.inspect
-      assets[ 'astro.js' ].to_s
+      assets[ 'astro.js' ].tap do |asset|
+        content_type asset.content_type
+      end.to_s
     end
 
     # TODO rescue Sprockets::FileNotFound
