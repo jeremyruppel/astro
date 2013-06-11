@@ -16,9 +16,11 @@ describe Astro::Server do
 
       its( :status ){ should == 200 }
 
-      # TODO approval
+      example 'headers' do
+        verify { subject.headers }
+      end
       example 'body' do
-        subject.body.should == "/**\n * Welcome to astro.js!\n */\n\n;\n"
+        verify( :format => :js ){ subject.body }
       end
     end
 
@@ -27,9 +29,11 @@ describe Astro::Server do
 
       its( :status ){ should == 200 }
 
-      # TODO approval
+      example 'headers' do
+        verify { subject.headers }
+      end
       example 'body' do
-        subject.body.should == "// this is foo.js\n;\n/**\n * Welcome to astro.js!\n */\n\n;\n"
+        verify( :format => :js ){ subject.body }
       end
     end
   end
