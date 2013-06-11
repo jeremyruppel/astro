@@ -37,6 +37,19 @@ describe Astro::Server do
       end
     end
 
+    context 'bar' do
+      before { get '/javascripts', :assets => [ 'bar' ] }
+
+      its( :status ){ should == 200 }
+
+      example 'headers' do
+        verify { subject.headers }
+      end
+      example 'body' do
+        verify( :format => :js ){ subject.body }
+      end
+    end
+
     context 'baz' do
       before { get '/javascripts', :assets => [ 'baz' ] }
 
