@@ -42,6 +42,21 @@ module Astro
     # Sinatra extension interface.
     def self.registered( app )
       app.helpers Astro::Assets::Helpers
+
+      # development and production environments use assets
+      # in `app/assets`.
+      app.configure :development, :production do |app|
+        app.before do
+          assets.append_path 'app/assets/javascripts'
+        end
+      end
+
+      # the test environment uses assets in `test/assets`.
+      app.configure :test do |app|
+        app.before do
+          assets.append_path 'spec/assets/javascripts'
+        end
+      end
     end
   end
 end

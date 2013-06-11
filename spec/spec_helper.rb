@@ -1,6 +1,8 @@
 require 'astro'
 require 'rack/test'
 
+ENV[ 'RACK_ENV' ] ||= 'test'
+
 Dir[ './spec/support/*.rb' ].each { |f| require f }
 
 RSpec.configure do |config|
