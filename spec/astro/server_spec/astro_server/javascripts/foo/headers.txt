@@ -1,5 +1,5 @@
 {
   "Content-Type"           => "application/javascript;charset=utf-8",
-  "Content-Length"         => "142",
+  "Content-Length"         => "489",
   "X-Content-Type-Options" => "nosniff"
 }
