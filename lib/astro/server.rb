@@ -15,6 +15,7 @@ module Astro
     register Astro::Assets
 
     use Astro::Middleware::QueryString
+    use Astro::Middleware::Sprockets
 
     ##
     # TODO docs

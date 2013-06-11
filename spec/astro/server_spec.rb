@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Astro::Server do
 
   ##
-  # Rack-test interface compliance.
+  # Rack-test interface.
   def app
     described_class
   end

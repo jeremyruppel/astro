@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Astro::Middleware::QueryString do
 
+  ##
+  # Rack-test interface.
   def app
     described_class.new( lambda { |env|
       [ 200, { 'Content-Type' => 'text/plain' }, [ '' ] ]

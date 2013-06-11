@@ -6,5 +6,6 @@ module Astro
 
   module Middleware
     autoload :QueryString, 'astro/middleware/query_string'
+    autoload :Sprockets,   'astro/middleware/sprockets'
   end
 end
