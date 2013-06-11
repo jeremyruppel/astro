@@ -15,14 +15,18 @@ module Astro
     register Astro::Assets
 
     ##
-    #
-    get '/javascripts' do
-      assets[ 'astro.js' ].tap do |asset|
-        content_type asset.content_type
-      end.to_s
+    # TODO docs
+    error Sprockets::FileNotFound do
+      halt 404, erb( :error )
     end
 
-    # TODO rescue Sprockets::FileNotFound
+    ##
+    # TODO docs
+    before( '/javascripts' ){ content_type 'application/javascript' }
+
+    ##
+    # TODO docs
+    get( '/javascripts' ){ assets[ 'astro.js' ].to_s }
 
     # TODO get /javascripts/:name
     # - display available versions?
