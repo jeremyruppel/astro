@@ -14,8 +14,7 @@ module Astro
         req = Rack::Request.new( env )
         str = Rack::Utils.unescape( req.query_string )
 
-        # TODO config
-        env[ 'astro.assets' ] = str.split ','
+        env[ 'astro.assets' ] = str.split ':'
 
         @app.call env
       end

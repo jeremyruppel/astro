@@ -21,7 +21,7 @@ describe Astro::Middleware::QueryString do
     subject.should == [ 'foo' ]
   end
   it 'parses more than one asset name' do
-    get '?foo,bar'
+    get '?foo:bar'
     subject.should == [ 'foo', 'bar' ]
   end
 end
