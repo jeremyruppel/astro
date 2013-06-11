@@ -13,54 +13,30 @@ describe Astro::Server do
 
     context 'empty' do
       before { get '/javascripts' }
-
       its( :status ){ should == 200 }
-
-      example 'headers' do
-        verify { subject.headers }
-      end
-      example 'body' do
-        verify( :format => :js ){ subject.body }
-      end
+      example( 'headers' ){ verify { subject.headers } }
+      example( 'body'    ){ verify( :format => :js ){ subject.body } }
     end
 
     context 'foo' do
       before { get '/javascripts', :assets => [ 'foo' ] }
-
       its( :status ){ should == 200 }
-
-      example 'headers' do
-        verify { subject.headers }
-      end
-      example 'body' do
-        verify( :format => :js ){ subject.body }
-      end
+      example( 'headers' ){ verify { subject.headers } }
+      example( 'body'    ){ verify( :format => :js ){ subject.body } }
     end
 
     context 'bar' do
       before { get '/javascripts', :assets => [ 'bar' ] }
-
       its( :status ){ should == 200 }
-
-      example 'headers' do
-        verify { subject.headers }
-      end
-      example 'body' do
-        verify( :format => :js ){ subject.body }
-      end
+      example( 'headers' ){ verify { subject.headers } }
+      example( 'body'    ){ verify( :format => :js ){ subject.body } }
     end
 
     context 'baz' do
       before { get '/javascripts', :assets => [ 'baz' ] }
-
       its( :status ){ should == 404 }
-
-      example 'headers' do
-        verify { subject.headers }
-      end
-      example 'body' do
-        verify( :format => :js ){ subject.body }
-      end
+      example( 'headers' ){ verify { subject.headers } }
+      example( 'body'    ){ verify( :format => :js ){ subject.body } }
     end
   end
 end

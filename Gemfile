@@ -8,6 +8,8 @@ group :test do
   gem 'rspec',         '~> 2.13.0'
   gem 'rack-test',     '~> 0.6.2'
   gem 'git-approvals', '~> 0.2.2'
+  gem 'uglifier',      '~> 2.1.1'
+  gem 'guard-rspec',   '~> 3.0.1'
 end
 
 group :development, :test do
