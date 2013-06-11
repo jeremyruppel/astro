@@ -18,7 +18,7 @@ describe Astro::Server do
 
       # TODO approval
       example 'body' do
-        subject.body.should == ''
+        subject.body.should == "/**\n * Welcome to astro.js!\n */\n\n;\n"
       end
     end
 
@@ -29,7 +29,7 @@ describe Astro::Server do
 
       # TODO approval
       example 'body' do
-        subject.body.should == 'foo'
+        subject.body.should == "// this is foo.js\n;\n/**\n * Welcome to astro.js!\n */\n\n;\n"
       end
     end
   end
