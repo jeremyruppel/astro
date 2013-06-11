@@ -9,8 +9,6 @@ Astro is your DIY asset distribution web service.
 - Minify javascript?
 - Cache!
 - Docs!
-- Find a better URL structure ...
-- ... OR make a loader script to abstract that away.
 - Collect shit tons of assets.
 - Similar endpoint for stylesheets.
 - Deploy to heroku.

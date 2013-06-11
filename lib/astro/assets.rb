@@ -15,18 +15,17 @@ module Astro
       # The sprockets environment instance.
       def assets
         @assets ||= begin
-          env = Sprockets::Environment.new
-          env.append_path 'lib/assets/javascripts'
+          sprockets = Sprockets::Environment.new
+          sprockets.append_path 'lib/assets/javascripts'
 
           ##
           # If we're processing the root asset, require all of
           # the assets in the params hash and return the data
           # as-is. The root processed asset will take care of
           # resolving the dependencies.
-          env.register_preprocessor 'application/javascript', :astro do |context, data|
+          sprockets.register_preprocessor 'application/javascript', :astro do |context, data|
             if context.logical_path == 'astro'
-              params[ :assets ] ||= [ ]
-              params[ :assets ].each do |asset|
+              env[ 'astro.assets' ].each do |asset|
                 context.require_asset( asset )
               end
             end
@@ -34,7 +33,7 @@ module Astro
             data
           end
 
-          env
+          sprockets
         end
       end
     end

@@ -14,6 +14,8 @@ module Astro
 
     register Astro::Assets
 
+    use Astro::Middleware::QueryString
+
     ##
     # TODO docs
     error Sprockets::FileNotFound do
