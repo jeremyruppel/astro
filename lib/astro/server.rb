@@ -3,15 +3,6 @@ require 'sinatra/base'
 module Astro
   class Server < Sinatra::Base
 
-    configure :development do
-      require 'sinatra/reloader'
-      register Sinatra::Reloader
-
-      enable :dump_errors
-      enable :raise_errors
-      disable :show_exceptions
-    end
-
     register Astro::Assets
 
     use Astro::Middleware::QueryString
