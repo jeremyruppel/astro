@@ -15,6 +15,7 @@ module Astro
       def call( env )
         sprockets = ::Sprockets::Environment.new
         sprockets.append_path 'lib/assets/javascripts'
+        sprockets.append_path 'lib/assets/stylesheets'
 
         env[ 'astro.sprockets' ] = sprockets
 

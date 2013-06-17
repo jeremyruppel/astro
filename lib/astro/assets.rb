@@ -23,6 +23,7 @@ module Astro
       app.configure :development, :production do |app|
         app.before do
           assets.append_path 'app/assets/javascripts'
+          assets.append_path 'app/assets/stylesheets'
         end
       end
 
@@ -30,6 +31,7 @@ module Astro
       app.configure :test do |app|
         app.before do
           assets.append_path 'spec/assets/javascripts'
+          assets.append_path 'spec/assets/stylesheets'
         end
       end
 

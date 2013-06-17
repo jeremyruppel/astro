@@ -17,10 +17,15 @@ module Astro
     ##
     # TODO docs
     before( '/javascripts' ){ content_type 'application/javascript' }
+    before( '/stylesheets' ){ content_type 'text/css' }
 
     ##
     # TODO docs
     get( '/javascripts' ){ assets[ 'astro.js' ].to_s }
+
+    ##
+    # TODO docs
+    get( '/stylesheets' ){ assets[ 'astro.css' ].to_s }
 
     # TODO get /javascripts/:name
     # - display available versions?
