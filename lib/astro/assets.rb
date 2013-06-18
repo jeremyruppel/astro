@@ -23,6 +23,7 @@ module Astro
       app.configure :development, :production do |app|
         app.before do
           assets.append_path 'app/assets/javascripts'
+          assets.append_path 'app/assets/stylesheets'
         end
       end
 
@@ -30,13 +31,12 @@ module Astro
       app.configure :test do |app|
         app.before do
           assets.append_path 'spec/assets/javascripts'
+          assets.append_path 'spec/assets/stylesheets'
         end
       end
 
       app.before do
-        assets.register_preprocessor \
-          'application/javascript', :astro do |context, data|
-
+        processor = lambda do |context, data|
           ##
           # If we're processing the root asset, require all of
           # the assets in the assets list and return the data
@@ -50,6 +50,11 @@ module Astro
 
           data
         end
+
+        assets.register_preprocessor \
+          'application/javascript', :astro, &processor
+        assets.register_preprocessor \
+          'text/css', :astro, &processor
       end
 
     end

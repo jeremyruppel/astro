@@ -14,9 +14,12 @@ describe Astro::Middleware::Sprockets do
   subject { last_request.env[ 'astro.sprockets' ] }
 
   it { should be_a( Sprockets::Environment ) }
-  it { should have( 1 ).paths }
+  it { should have( 2 ).paths }
 
-  it 'has the correct paths' do
+  it 'has the javascripts directory in the path' do
     subject.paths[ 0 ].should =~ /lib\/assets\/javascripts$/
+  end
+  it 'has the stylesheets directory in the path' do
+    subject.paths[ 1 ].should =~ /lib\/assets\/stylesheets$/
   end
 end
