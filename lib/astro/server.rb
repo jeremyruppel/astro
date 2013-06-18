@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/respond_with'
 
 module Astro
   class Server < Sinatra::Base
 
     register Astro::Assets
+    register Sinatra::RespondWith
 
     use Astro::Middleware::QueryString
     use Astro::Middleware::Sprockets
@@ -11,7 +13,8 @@ module Astro
     ##
     # TODO docs
     error Sprockets::FileNotFound do
-      halt 404, erb( :error )
+      status 404
+      respond_with :error
     end
 
     ##

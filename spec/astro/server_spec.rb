@@ -50,25 +50,25 @@ describe Astro::Server do
       example( 'body'    ){ verify( :format => :css ){ subject.body } }
     end
 
-    # context 'foo' do
-    #   before { get '/stylesheets?foo' }
-    #   its( :status ){ should == 200 }
-    #   example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
-    #   example( 'body'    ){ verify( :format => :css ){ subject.body } }
-    # end
-    #
-    # context 'bar' do
-    #   before { get '/stylesheets?bar' }
-    #   its( :status ){ should == 200 }
-    #   example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
-    #   example( 'body'    ){ verify( :format => :css ){ subject.body } }
-    # end
-    #
-    # context 'baz' do
-    #   before { get '/stylesheets?baz' }
-    #   its( :status ){ should == 404 }
-    #   example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
-    #   example( 'body'    ){ verify( :format => :css ){ subject.body } }
-    # end
+    context 'foo' do
+      before { get '/stylesheets?foo' }
+      its( :status ){ should == 200 }
+      example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
+      example( 'body'    ){ verify( :format => :css ){ subject.body } }
+    end
+
+    context 'bar' do
+      before { get '/stylesheets?bar' }
+      its( :status ){ should == 200 }
+      example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
+      example( 'body'    ){ verify( :format => :css ){ subject.body } }
+    end
+
+    context 'baz' do
+      before { get '/stylesheets?baz' }
+      its( :status ){ should == 404 }
+      example( 'headers' ){ verify( :format => :txt ){ subject.headers } }
+      example( 'body'    ){ verify( :format => :css ){ subject.body } }
+    end
   end
 end

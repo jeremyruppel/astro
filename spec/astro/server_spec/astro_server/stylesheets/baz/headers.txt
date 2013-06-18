@@ -1,0 +1,5 @@
+{
+  "Content-Type"           => "text/css;charset=utf-8",
+  "Content-Length"         => "74",
+  "X-Content-Type-Options" => "nosniff"
+}
