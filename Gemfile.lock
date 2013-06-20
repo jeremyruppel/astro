@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    astro (0.2.0)
+    astro (0.2.1)
       sinatra (~> 1.4.3)
       sinatra-contrib (~> 1.4.0)
       sprockets (~> 2.10.0)
